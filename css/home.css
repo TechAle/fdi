@@ -1,36 +1,49 @@
 html {
     height: 100vh;
-    background-image: url("./img/homeBackground.jpg");
+    background-image: url("../img/homeBackground.png");
     color: white;
     font-family: Verdana, sans-serif;
-    font-size: 5vw;
-
+    font-size: 6vmin;
+    background-size: cover;
 }
+
 
 #content {
     text-align: center;
 }
 #subject {
-    margin-top: 20%;
+    margin-top: 15vmin;
     margin-bottom: 0;
 }
 
 #buttons {
-    width: 80%;
-    margin: 10px auto auto;
-    height: 10px;
+    display: block;
+    margin: 25px auto auto;
 }
 
 #buttons > button {
     border-radius: 10px;
     border: transparent;
-    font-size: 4vw;
-    padding: 10px 20px;
+    font-size: 5vmin;
     background-color: white;
     -webkit-box-shadow: 0 0 17px 2px #000000;
     -moz-box-shadow: 0 0 17px 2px #000000;
     -o-box-shadow: 0 0 17px 2px #000000;
     box-shadow: 0 0 17px 2px #000000;
-    width: 200px;
+    width: 35%;
     margin: 0 15px 30px;
+    padding: 18px 0;
+}
+
+.invisible {
+    display: none;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    #buttons > button {
+        width: 60%;
+        padding: 20px 0;
+    }
 }
