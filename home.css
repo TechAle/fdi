@@ -1,0 +1,36 @@
+html {
+    height: 100vh;
+    background-image: url("./img/homeBackground.jpg");
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-size: 5vw;
+
+}
+
+#content {
+    text-align: center;
+}
+#subject {
+    margin-top: 20%;
+    margin-bottom: 0;
+}
+
+#buttons {
+    width: 80%;
+    margin: 10px auto auto;
+    height: 10px;
+}
+
+#buttons > button {
+    border-radius: 10px;
+    border: transparent;
+    font-size: 4vw;
+    padding: 10px 20px;
+    background-color: white;
+    -webkit-box-shadow: 0 0 17px 2px #000000;
+    -moz-box-shadow: 0 0 17px 2px #000000;
+    -o-box-shadow: 0 0 17px 2px #000000;
+    box-shadow: 0 0 17px 2px #000000;
+    width: 200px;
+    margin: 0 15px 30px;
+}
