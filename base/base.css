@@ -1,0 +1,90 @@
+html {
+    font-family: Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.backHeader {
+    background-image: url("../img/homeBackground.png");
+    height: 68px;
+    position: absolute;
+    width: 100%;
+}
+
+
+header {
+    height: 67px;
+    background-color: transparent;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+#space {
+    height: 70px;
+}
+
+#leftHeader {
+    margin-left: 10px;
+}
+
+#rightHeader {
+    margin-left: auto;
+    display: flex;
+}
+
+#rightHeader > div {
+    margin-right: 10px;
+}
+
+#menu {
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+#rightHeader > span {
+    margin-left: 10px;
+}
+
+#menu {
+    display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+    #rightHeader {
+        position: absolute;
+        bottom: -150px;
+        text-align: center;
+        width: 100%;
+        display: initial;
+    }
+
+    header {
+        border-bottom: black solid 1px;
+    }
+
+
+    #menu {
+        display: initial;
+    }
+
+    .expanded {
+        height: 220px;
+        border-bottom: black solid 1px;
+    }
+}
+
+
+.fa-bars:hover, #rightHeader > span:hover {
+    color: lightgray;
+}
