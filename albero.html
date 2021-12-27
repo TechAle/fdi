@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Albero</title>
+  <link rel="stylesheet" href="css/albero.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="backHeader"></div>
+  <header>
+
+    <div id="leftHeader">
+      FDI
+    </div>
+    <div id="rightHeader" class="expandableHeader">
+      <div>Back</div>
+      <div>Appunti</div>
+      <div>Relazioni</div>
+      <div>Esami</div>
+    </div>
+    <div id="menu">
+      <i class="fa fa-bars"></i>
+    </div>
+  </header>
+
+  <div id="space">
+
+  </div>
+
+
+  <script>
+    var expanded = false;
+    document.getElementById("menu").addEventListener("mouseover", function (event) {
+      document.getElementsByClassName("backHeader")[0].classList.add("expanded")
+    })
+
+    document.getElementById("menu").addEventListener("click", function (event) {
+      if (expanded) {
+        document.getElementsByClassName("backHeader")[0].classList.remove("expanded")
+      } else
+        document.getElementsByClassName("backHeader")[0].classList.add("expanded")
+      expanded = !expanded;
+    })
+
+    document.getElementById("menu").addEventListener("mouseleave", function (event) {
+      if (!expanded)
+        document.getElementsByClassName("backHeader")[0].classList.remove("expanded")
+    })
+  </script>
+
+
+</body>
+</html>
