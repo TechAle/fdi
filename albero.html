@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body  onload="init()">
 <div class="backHeader"></div>
   <header>
 
@@ -25,11 +25,116 @@
     </div>
   </header>
 
-  <div id="space">
+  <style>
+    #grafo {
 
+    }
+
+    #can {
+      cursor:crosshair;
+      border:2px solid;
+    }
+
+  </style>
+
+  <div id="space">
+    <div id="padding"></div>
+    <div id="main">
+      <div id="manuale">
+        <center>
+          <div id="richiesta">
+            Inserire il grafo
+          </div><br>
+          <label id="grafoManuale">
+            <input type="text" id="inputGrafoManuale" placeholder="valore">
+          </label>
+        </center>
+      </div>
+      <div id="grafo">
+        <center>
+        <canvas id="can" width="600" height="500" ></canvas>
+        </center>
+      </div>
+    </div>
   </div>
 
+  <!-- Canvas -->
+<script type="text/javascript">
+  var canvas, ctx,
+          currX = 0,
+          currY = 0;
 
+  const raggio = 20;
+
+  var listCircle = [];
+
+  function init() {
+    canvas = document.getElementById('can');
+    ctx = canvas.getContext("2d");
+    w = canvas.width;
+    h = canvas.height;
+
+    canvas.addEventListener("click", function (e) {
+      circle(e)
+    })
+  }
+
+  function circle(e) {
+    currX = e.clientX - canvas.offsetLeft;
+    currY = e.clientY - canvas.offsetTop;
+    var valore = getValore()
+    if (valore.length > 0) {
+      var index = exists(currX, currY);
+      if (index === -1) {
+        listCircle.push({"x": currX, "y": currY, "val" : valore})
+        drawCircle(currX, currY, valore);
+      } else {
+        listCircle.splice(index, 1);
+        deleteCircle();
+      }
+    }
+  }
+
+  function getValore() {
+    return document.getElementById("inputGrafoManuale").value;
+  }
+
+  function exists(x, y) {
+
+    for (var i = 0; i < listCircle.length; i++)
+      if (Math.sqrt(
+              Math.pow(listCircle[i]["x"] - x, 2) +
+              Math.pow(listCircle[i]["y"] - y, 2)
+      ) < raggio )
+        return i;
+
+    return -1;
+  }
+
+  function drawCircle(x, y, valore) {
+    ctx.beginPath();
+    ctx.arc(x, y, raggio, 0, 2 * Math.PI, true);
+    ctx.fillStyle = '#F2F2F2'
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
+    ctx.closePath();
+    ctx.font = "10px Arial";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "black";
+    ctx.fillText(valore,x,y);
+  }
+
+  function deleteCircle() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    listCircle.forEach(circle => drawCircle(circle["x"], circle["y"], circle["val"]))
+  }
+
+
+</script>
+
+  <!-- Menu -->
   <script>
     var expanded = false;
     document.getElementById("menu").addEventListener("mouseover", function (event) {
@@ -49,7 +154,5 @@
         document.getElementsByClassName("backHeader")[0].classList.remove("expanded")
     })
   </script>
-
-
 </body>
 </html>

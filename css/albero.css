@@ -88,3 +88,45 @@ header {
 .fa-bars:hover, #rightHeader > span:hover {
     color: lightgray;
 }
+
+#padding {
+    height: 67px;
+}
+#space {
+    height: 100vh;
+}
+
+#main {
+    height: calc(100vh - 67px);
+    color: black;
+}
+
+#manuale {
+    height: 20%;
+}
+
+#grafo {
+    height: 80%;
+}
+
+#richiesta {
+    border: black solid 1px;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 15px 5px 5px;
+    display: inline-block;
+}
+
+#grafoManuale {
+    display: inline-block;
+    width: 80%;
+}
+
+#inputGrafoManuale {
+    width: calc(100%);
+    padding: 5px;
+    font-size: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
